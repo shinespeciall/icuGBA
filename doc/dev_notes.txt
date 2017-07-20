@@ -1,0 +1,8 @@
+Tools:
+
+Lazarus 1.0.4
+	http://www.lazarus.freepascal.org/
+BGRABitmap
+	http://sourceforge.net/projects/lazpaint/files/src/
+DLL popupmenu patch
+	http://bugs.freepascal.org/view.php?id=18624

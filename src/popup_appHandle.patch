@@ -1,0 +1,14 @@
+Index: lcl/interfaces/win32/win32wsmenus.pp
+===================================================================
+--- lcl/interfaces/win32/win32wsmenus.pp	(revision 29236)
++++ lcl/interfaces/win32/win32wsmenus.pp	(working copy)
+@@ -1451,6 +1451,9 @@
+ begin
+   MenuHandle := APopupMenu.Handle;
+   AppHandle := TWin32WidgetSet(WidgetSet).AppHandle;
++  if AppHandle = HWND(Nil) then
++    if Assigned(Screen.ActiveCustomForm) then
++      AppHandle := Screen.ActiveCustomForm.Handle;
+   GetWin32WindowInfo(AppHandle)^.PopupMenu := APopupMenu;
+   TrackPopupMenuEx(MenuHandle,
+     lAlignment[APopupMenu.Alignment, APopupMenu.IsRightToLeft] or lTrackButtons[APopupMenu.TrackButton],
